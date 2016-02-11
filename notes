@@ -1,0 +1,9 @@
+include makefile
+include instructions in readme
+
+submit image online
+submit code online
+
+Common Python Error:
+       screen[y].append( DEFAULT_COLOR[:] ) # a copy of the default pixel
+       screen[y].append( DEFAULT_COLOR ) #a reference to the variable only, does not make a new copy
