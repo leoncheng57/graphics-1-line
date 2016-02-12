@@ -4,6 +4,9 @@ from draw import *
 screen = new_screen()
 color = [ 0, 255, 0 ]
 
+#MY OWN TESTING
+# draw_line( screen, 0, 0, 1, 3, color )
+
 #octant I
 draw_line( screen, 0, 0, XRES - 1, YRES - 75, color )
 #octant II
