@@ -16,12 +16,12 @@ def draw_line( screen, x0, y0, x1, y1, color ):
 #
 # draw_line( screen, 0, 0, XRES - 75, YRES - 1, color )
     #Octant 2
-    a = (y1-y0)
-    b = (x1-x0)
-    if (b==0):
+    #m = (y1-y0)/(x1-x0)
+    #if (not (m > 1 and x0 >=0 and y0 >=0)):
+    #    return
+    if ((x1>x0)==False):
         return
-    m = a/b
-    if (not (m > 1 and x0 >=0 and y0 >=0)):
+    if (((y1-y0)/(x1-x0) > 1)==False ):
         return
     x = x0
     y = y0
@@ -30,12 +30,11 @@ def draw_line( screen, x0, y0, x1, y1, color ):
     d = A + 2*B
     while(y <= y1):
         plot( screen, color, x, y )
-        print "x: "+str(x)
-        print "y: "+str(y)
         if (d<0):
             x+=1
             d+=2*A
         y+=1
         d+=2*B
     print("inside draw_line")
+    return
     # pass

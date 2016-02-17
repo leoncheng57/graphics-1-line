@@ -5,7 +5,11 @@ screen = new_screen()
 color = [ 0, 255, 0 ]
 
 #MY OWN TESTING
-# draw_line( screen, 0, 0, 1, 3, color )
+# XRES = 500
+# YRES = 500
+#octant II
+draw_line( screen, 0, 0, XRES - 75, YRES - 1, color )
+draw_line( screen, 0, 0, XRES - 1, YRES - 75, color )
 
 #octant I
 draw_line( screen, 0, 0, XRES - 1, YRES - 75, color )
