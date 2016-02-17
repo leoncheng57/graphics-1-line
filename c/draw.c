@@ -21,6 +21,9 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   //     d+=2B
   if (!(x1>x0))
     return;
+  if (!((y1-y0)/(x1-x0)>=1))
+    return;
+  //OCTANT II
   int x = x0;
   int y = y0;
   int A = y1-y0;
