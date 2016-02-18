@@ -18,10 +18,25 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     x1 = tx; y1 = ty;
   }
 
-
   /* TODO: FIX THIS */
   //Vertical line, infinite slope
   if ((x1-x0)==0){
+    x = x0; y = y0;
+    A = y1-y0; B = -(x1-x0);
+    d = A+2*B;
+    while(y <= y1){
+      plot(s,c,x,y);
+      y+=1;
+      d+=2*B;
+    }
+    x = x0; y = y0;
+    A = y1-y0; B = -(x1-x0);
+    d = A-2*B;
+    while(y >= y1){
+      plot(s,c,x,y);
+      y-=1;
+      d-=2*B;
+    }
     return;
   }
     
@@ -61,21 +76,6 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
 
   //OCTANT VIII
-
-  /***********************************/
-  /* *_Algorithm_* (Octant 8)	     */
-  /* (x_o, y_o) -> (x_1, y_1)  	     */
-  /* x=x_o, y=y_o		     */
-  /* A = y_1 - y_o, B = -(x_1 - x_o) */
-  /* d = 2A - B			     */
-  /* while(x \leq x_1)		     */
-  /*   plot (x, y)		     */
-  /*   if (d>0) ?		     */
-  /*     y-=1			     */
-  /*     d-=2B			     */
-  /*   x+=1			     */
-  /*   d+=2A			     */
-  /***********************************/
   m = (y1-y0)/(x1-x0); 
   if ((m >= -1 && m <= 0 )){
     x = x0; y = y0;
@@ -92,7 +92,23 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
   }
 
-  
+  //OCTANT VII
+  m = (y1-y0)/(x1-x0); 
+  if ((m <= -1 )){
+    x = x0; y = y0;
+    A = y1-y0; B = -(x1-x0);
+    d = A-2*B;
+    while(y >= y1){
+      plot(s,c,x,y);
+      if (d>0){
+	x+=1;
+	d+=2*A;
+      }
+      y-=1;
+      d-=2*B;
+    }
+  }
     
-  
+
+
 }
