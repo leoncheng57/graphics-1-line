@@ -37,9 +37,12 @@ int main() {
   c.green = 0;
   c.blue = 0;
 
-  i = XRES/4;
-  j = YRES/2;
-  draw_line(0, 0, i, j, s, c);
+  int x, y;
+  for (x=XRES/4;x<XRES*3/4;x+=5){
+    for (y=YRES/4;y<YRES*3/4;y+=5){
+      draw_line(x+5, y+5, x, y, s, c);
+    }
+  }
   
 
 
