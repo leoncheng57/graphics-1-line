@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include "ml6.h"
 #include "display.h"
@@ -33,15 +34,23 @@ int main() {
   }
 
 
+
   c.red = MAX_COLOR;
   c.green = 0;
   c.blue = 0;
 
-  int x, y;
-  for (x=XRES/4;x<XRES*3/4;x+=5){
-    for (y=YRES/4;y<YRES*3/4;y+=5){
-      draw_line(x+5, y+5, x, y, s, c);
-    }
+  int x0, y0, x1, y1;
+  x0 = 0;
+  y0 = YRES/2;
+  x1 = 0;
+  y1 = YRES;
+  while(y0<=YRES){
+    draw_line(x0, y0, x1, y1, s, c);
+    y0+=5;
+    x1+=5;
+    c.red = (c.red+2)%255;
+    c.blue = (c.blue+7)%255;
+    c.green = (c.green+5)%255;
   }
   
 
