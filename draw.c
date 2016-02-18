@@ -41,7 +41,6 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
 
   m = ((float)(y1-y0))/((float)(x1-x0));
-  printf("m: %lf\n", m);
 
   //OCTANT I, V
   if ((m <= 1 && m >= 0)){

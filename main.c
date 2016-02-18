@@ -18,6 +18,31 @@ int main() {
 
   clear_screen(s);
 
+  int i, j;
+  j=YRES;
+  for (i=0; i<=XRES; i+=20){
+    draw_line(0, 0, i, j, s, c);
+    c.red = (c.red+20)%255;
+    c.green = (c.green+10)%255;
+  }
+  i=XRES;
+  for (j=0; j<=YRES; j+=20){
+    draw_line(0, 0, i, j, s, c);
+    c.red = (c.red+20)%255;
+    c.blue = (c.blue+10)%255;
+  }
+
+
+  c.red = MAX_COLOR;
+  c.green = 0;
+  c.blue = 0;
+
+  i = XRES/4;
+  j = YRES/2;
+  draw_line(0, 0, i, j, s, c);
+  
+
+
 /*   DW TEST CODE BELOW    */
 /*
   //octant 1
