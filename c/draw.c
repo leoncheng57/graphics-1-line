@@ -9,17 +9,16 @@
 void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   
   int x, y, A, B, d, m;  
-  
+
+  //Switch coors  
   if (!(x1>x0)){
-    //switch coors
     int tx, ty;
     tx = x0; ty = y0;
     x0 = x1; y0 = y1;
     x1 = tx; y1 = ty;
   }
 
-  /* TODO: FIX THIS */
-  //Vertical line, infinite slope
+  //Vertical line, octants II and VII
   if ((x1-x0)==0){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -39,10 +38,10 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
     return;
   }
-    
+
+  m = (y1-y0)/(x1-x0); 
 
   //OCTANT I
-  m = (y1-y0)/(x1-x0); 
   if ((m <= 1 && m >= 0)){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -59,7 +58,6 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
   
   //OCTANT II
-  m = (y1-y0)/(x1-x0); 
   if ((m >= 1)){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -76,7 +74,6 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
 
   //OCTANT VIII
-  m = (y1-y0)/(x1-x0); 
   if ((m >= -1 && m <= 0 )){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -93,7 +90,6 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
 
   //OCTANT VII
-  m = (y1-y0)/(x1-x0); 
   if ((m <= -1 )){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
