@@ -7,11 +7,11 @@
 
 //Insert your line algorithm here
 void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
-  
+
   int x, y, A, B, d;
   float m;
-  
-  //Switch coors  
+
+  //Switch coors
   if (!(x1>x0)){
     int tx, ty;
     tx = x0; ty = y0;
@@ -40,10 +40,10 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     return;
   }
 
-  m = ((float)(y1-y0))/((float)(x1-x0)); 
+  m = ((float)(y1-y0))/((float)(x1-x0));
   printf("m: %lf\n", m);
-  
-  //OCTANT I
+
+  //OCTANT I, V
   if ((m <= 1 && m >= 0)){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -59,7 +59,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
   }
 
-  //OCTANT II
+  //OCTANT II, VI
   if ((m >= 1)){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -75,7 +75,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
   }
 
-  //OCTANT VIII
+  //OCTANT VIII, IV
   if ((m >= -1 && m <= 0 )){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -91,7 +91,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
     }
   }
 
-  //OCTANT VII
+  //OCTANT VII, III
   if ((m <= -1 )){
     x = x0; y = y0;
     A = y1-y0; B = -(x1-x0);
@@ -106,7 +106,5 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
       d-=2*B;
     }
   }
-    
-
 
 }
