@@ -59,5 +59,40 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
       d+=2*B;
     }
   }
+
+  //OCTANT VIII
+
+  /***********************************/
+  /* *_Algorithm_* (Octant 8)	     */
+  /* (x_o, y_o) -> (x_1, y_1)  	     */
+  /* x=x_o, y=y_o		     */
+  /* A = y_1 - y_o, B = -(x_1 - x_o) */
+  /* d = 2A - B			     */
+  /* while(x \leq x_1)		     */
+  /*   plot (x, y)		     */
+  /*   if (d>0) ?		     */
+  /*     y-=1			     */
+  /*     d-=2B			     */
+  /*   x+=1			     */
+  /*   d+=2A			     */
+  /***********************************/
+  m = (y1-y0)/(x1-x0); 
+  if ((m >= -1 && m <= 0 )){
+    x = x0; y = y0;
+    A = y1-y0; B = -(x1-x0);
+    d = 2*A-B;
+    while(x <= x1){
+      plot(s,c,x,y);
+      if (d<0){
+	y-=1;
+	d-=2*B;
+      }
+      x+=1;
+      d+=2*A;
+    }
+  }
+
+  
+    
   
 }
