@@ -19,6 +19,8 @@ int main() {
 
   clear_screen(s);
 
+
+  //Colorful Diagonal Lines
   int i, j;
   j=YRES;
   for (i=0; i<=XRES; i+=20){
@@ -34,7 +36,7 @@ int main() {
   }
 
 
-
+  //Curved Look
   c.red = MAX_COLOR;
   c.green = 0;
   c.blue = 0;
@@ -48,11 +50,31 @@ int main() {
     draw_line(x0, y0, x1, y1, s, c);
     y0+=5;
     x1+=5;
-    c.red = (c.red+2)%255;
-    c.blue = (c.blue+7)%255;
-    c.green = (c.green+5)%255;
+    c.red = (c.red+12)%255;
+    c.blue = (c.blue+76)%255;
+    c.green = (c.green+25)%255;
   }
-  
+
+
+  //Curved Look
+  c.red = MAX_COLOR;
+  c.green = 0;
+  c.blue = 0;
+
+  // int x0, y0, x1, y1;
+  x0 = XRES/2;
+  y0 = 0;
+  x1 = XRES;
+  y1 = 0;
+  while(x0<=XRES){
+    draw_line(x0, y0, x1, y1, s, c);
+    y1+=5;
+    x0+=5;
+    c.red = (c.red+24)%255;
+    c.blue = (c.blue+75)%255;
+    c.green = (c.green+56)%255;
+  }
+
 
 
 /*   DW TEST CODE BELOW    */
